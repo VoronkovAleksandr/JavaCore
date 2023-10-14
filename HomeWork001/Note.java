@@ -1,5 +1,7 @@
 package HomeWork001;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Note {
@@ -21,7 +23,9 @@ public class Note {
 
     @Override
     public String toString() {
-        return date.toString() +
+        DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+        String strDate = formatter.format(date);
+        return strDate +
                 " -> " +
                 note;
     }
