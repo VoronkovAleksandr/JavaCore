@@ -1,6 +1,7 @@
 package HomeWork005;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +21,8 @@ public class Main {
         List<Student> result = students.stream()
                 .filter(s -> s.getSpecialty() == "Информатика")
                 .filter(s -> s.getAverageGrade() > 4.5)
-                .sorted((a, b) -> (int) (b.getAverageGrade() - a.getAverageGrade()))
+                .sorted(Comparator.comparingDouble(Student::getAverageGrade).reversed())
+//                .sorted((a, b) -> (int) (b.getAverageGrade() - a.getAverageGrade()))
                 .limit(5)
                 .collect(Collectors.toList());
         System.out.println("Студенты:");
